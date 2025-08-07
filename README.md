@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @Sophia-Hong  
 - 👀 I’m interested in business, AI, Law, Philosophy, Music, Films and Photography.  
-- 🌱 I’m currently learning to build AI Agents for my service, LegalFriend, using LangGraph and n8n automation.  
+- 🌱 I’m currently learning to build AI Agents for my service, LegalFriend, using LangGraph.
 - 💞️ I’m looking to collaborate on AI-driven tools for self-discovery, legal tech, marketing and content creation.  
 - 📫 How to reach me: sophia.sh.hong@gmail.com  
 - 😄 Pronouns: Ms.  
