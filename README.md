@@ -4,7 +4,7 @@
 - 💞️ I’m looking to collaborate on AI-driven tools for self-discovery, legal tech, marketing and content creation.  
 - 📫 How to reach me: sophia.sh.hong@gmail.com  
 - 😄 Pronouns: Ms.  
-- ⚡ Fun fact: I’m a lawyer-turned-entrepreneur, a piano player, a startup founder, and a mom who dreams of merging AI and human insights to create meaningful things.  
+- ⚡ Fun fact: I’m a lawyer-turned-entrepreneur, a piano player, a startup founder who dreams of merging AI and human insights to create meaningful things.  
 
 <!---
 Sophia-Hong/Sophia-Hong is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
