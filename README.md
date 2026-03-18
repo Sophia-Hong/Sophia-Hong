@@ -1,12 +1,16 @@
-- 👋 Hi, I’m @Sophia-Hong  
-- 👀 I’m interested in business, AI, Law, Philosophy, Music, Films and Photography.  
-- 🌱 I’m currently learning to build AI Agents for my service, LegalFriend, using LangGraph.
-- 💞️ I’m looking to collaborate on AI-driven tools for self-discovery, legal tech, marketing and content creation.  
-- 📫 How to reach me: sophia.sh.hong@gmail.com  
-- 😄 Pronouns: Ms.  
-- ⚡ Fun fact: I’m a lawyer-turned-entrepreneur, a piano player, a startup founder who dreams of merging AI and human insights to create meaningful things.  
+🌸 Sophia Hong
 
-<!---
-Sophia-Hong/Sophia-Hong is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+Former antitrust lawyer. Left BigLaw at the top to build things the system couldn't.
+
+⚖️→🚀 Kim & Chang (Korea's largest law firm) → solo founder, because the legal system needed fewer billable hours and more "wait, that can't be right" moments.
+
+🏗️ Building:
+
+• LegalFriend.ai — AI that actually fights for tenants
+• LegalEngine — Teaching machines to read legal documents without making things up
+
+🧠 Perpetually curious about: why categories break down at the edges · structural patterns that cross domains · what happens before language names a thing · antitrust economics · philosophy of mind
+
+🎹 Absolute pitch. Film photography. Reads anthropology reports for fun. Once memorized every dragonfly species in her neighborhood as a kid.
+"The interesting stuff lives where the classifications stop working."
+📫 sophia.hong@legalfriend.ai
