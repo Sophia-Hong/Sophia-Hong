@@ -1,0 +1,11 @@
+{
+  "name": "naholo",
+  "version": "0.1.0",
+  "description": "나홀로소송(소액사건) 셀프 소송자를 위한 단계별 안내 에이전트 키트. 법률자문이 아닌 절차·작성 보조 도구입니다.",
+  "author": { "name": "Sophia Hong" },
+  "keywords": ["korea", "small-claims", "소액사건", "나홀로소송", "전자소송"],
+  "commands": "./commands",
+  "agents": "./agents",
+  "skills": "./skills",
+  "hooks": "./hooks/hooks.json"
+}

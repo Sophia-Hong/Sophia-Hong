@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '[naholo] 이 키트는 법률자문이 아닌 절차 안내·작성 보조 도구입니다. 판례·법조문은 반드시 /naholo:cite-check 로 검증하세요. 사건 파일은 case/ 폴더에 저장됩니다.'"
+          }
+        ]
+      }
+    ]
+  }
+}
