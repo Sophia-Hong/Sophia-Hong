@@ -3,8 +3,8 @@
 단가·회수는 개정될 수 있으므로 --postage 로 최신 송달료 1회분을 넘기고, 전자소송 화면 금액을 최종으로 한다."""
 import argparse, math
 
-DELIVERY_ROUNDS = {"sosong": 10, "civil": 15, "jigeup": 6, "jojeong": 5}  # 소액/민사1심/지급명령/조정 [확인]
-DEFAULT_POSTAGE = 5200  # 송달료 1회분 단가(원) — 최신값 확인 필요
+DELIVERY_ROUNDS = {"sosong": 10, "civil": 15, "jigeup": 6, "jojeong": 5}  # 소액 10회(easylaw·인천지법 안내)/민사1심 15회[확인]/지급명령 6회/조정 5회
+DEFAULT_POSTAGE = 5500  # 송달료 1회분 단가(원), 2025.6.1~ (대법원 공지) — 인상 시 --postage 로 갱신
 
 def stamp_fee(amount: int) -> int:
     if amount < 10_000_000:
@@ -31,7 +31,7 @@ def main():
     if a.type == "jigeup":
         base = int(math.floor(base / 10 / 100) * 100)
     elif a.type == "jojeong":
-        base = int(math.floor(base / 5 / 100) * 100)
+        base = int(math.floor(base / 10 / 100) * 100)  # 조정 신청 수수료 = 소송 인지의 1/10 (easylaw)
     base = max(base, 1_000)
     stamp = int(math.floor(base * (0.9 if a.efiling else 1.0) / 100) * 100)
     delivery = a.parties * a.postage * DELIVERY_ROUNDS[a.type]

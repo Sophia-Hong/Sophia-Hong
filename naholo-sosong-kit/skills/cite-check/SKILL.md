@@ -7,14 +7,15 @@ description: 판례 사건번호·법조문의 존재와 내용을 검증하는 
 
 ## 원칙
 1. **검증 없는 판례 인용 금지.** 사건번호가 검증 파이프라인을 통과하기 전에는 어떤 문서에도 넣지 않는다.
-2. 결과는 세 가지 중 하나: **확인됨 / 기각(존재하지 않음) / 경고(존재하나 내용이 다름)**.
-3. "기각"된 판례는 문서에서 삭제하고, 대신 "관련 판례는 직접 검색 필요"로 바꾼다.
+2. 결과는 세 가지 중 하나: **확인됨 / 미검증→문서에서 기각 / 경고(존재하나 내용이 다름)**.
+3. API에서 0건이면 "존재하지 않음"이라고 단정하지 않는다(하급심·미수록 가능). 상태는 **미검증**이며, 미검증 인용은 문서에서 **기각(삭제)** 하고 "관련 판례는 직접 검색 필요"로 바꾼다. 사용자가 직접 확인할 수 있는 링크를 준다: 사법정보공개포털 허위 사건번호 확인 https://portal.scourt.go.kr/pgp/index.on?m=PGP210M01&l=N&c=200 (2026.2 개시).
+3-1. 법원행정처 TF(2026.3)가 소송서류에 AI 활용 고지·인용 정확성 확인 의무를 추진 중이므로, 모든 서면 말미에 "AI 활용 고지 + 판례 검증 로그" 블록을 넣는다(`templates/소장_뼈대.md` 참조).
 4. 검증은 판례의 **요지가 우리 주장과 같은지**까지 본다. 사건번호만 맞고 내용이 다르면 "경고".
 
 ## 절차
 1. 형식 검사: 사건번호 형식 `YYYY + 부호 + 숫자` (예: 2019다12345, 2020가소1234, 2021나5678). 부호 목록: 다/나/가단/가소/가합/도/두/누/카/마/므/므단/르 등. `scripts/cite_check.py --format` 으로 검사.
 2. 존재 확인 (아래 중 하나 이상):
-   - 국가법령정보센터 판례 Open API (`https://www.law.go.kr/DRF/lawSearch.do?OC={OC}&target=prec&type=JSON&query={사건번호}`) — OC(이메일 아이디)를 `NAHOLO_LAW_OC` 환경변수로 설정(플러그인 설치 시 userConfig `law_oc` 로 입력하면 `${user_config.law_oc}` 로 참조 가능: `NAHOLO_LAW_OC=${user_config.law_oc} python3 ${CLAUDE_PLUGIN_ROOT}/scripts/cite_check.py …`). 응답의 `사건번호` 필드가 정확히 일치해야 "존재".
+   - 국가법령정보센터 판례 Open API (`https://www.law.go.kr/DRF/lawSearch.do?OC={OC}&target=prec&type=JSON&nb={사건번호}` — `nb` 0건이면 `query={사건번호}&search=2` 로 재시도; 파라미터명은 open.law.go.kr 가이드로 재검증. 대법원 판례 중심, 하급심 대부분 미수록) — OC(이메일 아이디)를 `NAHOLO_LAW_OC` 환경변수로 설정(플러그인 설치 시 userConfig `law_oc` 로 입력하면 `${user_config.law_oc}` 로 참조 가능: `NAHOLO_LAW_OC=${user_config.law_oc} python3 ${CLAUDE_PLUGIN_ROOT}/scripts/cite_check.py …`). 응답의 `사건번호` 필드가 정확히 일치해야 "존재".
    - 대법원 종합법률정보 https://glaw.scourt.go.kr 에서 사건번호 검색 (WebFetch 가능하면 사용, 아니면 사용자에게 URL 제공).
    - CaseNote https://casenote.kr 검색.
 3. 내용 대조: 존재가 확인되면 판시사항·판결요지를 가져와, 우리가 인용하려는 명제와 대조한다. 다르면 "경고"와 함께 실제 요지를 보여준다.
