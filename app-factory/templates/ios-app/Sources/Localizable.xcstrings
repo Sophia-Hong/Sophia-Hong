@@ -1,0 +1,8 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Nothing yet" : { "extractionState" : "manual" },
+    "Tap + to add your first item." : { "extractionState" : "manual" }
+  },
+  "version" : "1.0"
+}

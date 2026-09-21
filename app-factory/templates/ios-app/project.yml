@@ -1,0 +1,54 @@
+# XcodeGen spec. `xcodegen generate` produces __TARGET__.xcodeproj (gitignored).
+name: __TARGET__
+options:
+  bundleIdPrefix: __BUNDLE_ID__
+  deploymentTarget:
+    iOS: "17.0"
+  xcodeVersion: "16.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: 1
+    SWIFT_VERSION: "5.10"
+    DEVELOPMENT_TEAM: "$(APPLE_TEAM_ID)"
+    CODE_SIGN_STYLE: Automatic
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+    SWIFT_STRICT_CONCURRENCY: minimal
+packages:
+  FactoryKit:
+    path: ../../packages/FactoryKit
+targets:
+  __TARGET__:
+    type: application
+    platform: iOS
+    sources:
+      - path: Sources
+    dependencies:
+      - package: FactoryKit
+    info:
+      path: Sources/Info.plist
+      properties:
+        CFBundleDisplayName: "__APP_NAME__"
+        CFBundleIdentifier: "__BUNDLE_ID__"
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        ITSAppUsesNonExemptEncryption: false
+        LSApplicationCategoryType: "public.app-category.productivity"
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: "__BUNDLE_ID__"
+        TARGETED_DEVICE_FAMILY: "1"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        SWIFT_EMIT_LOC_STRINGS: YES
+    scheme:
+      testTargets: [__TARGET__Tests]
+      storeKitConfiguration: Configuration/Products.storekit
+  __TARGET__Tests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: [Tests]
+    dependencies:
+      - target: __TARGET__

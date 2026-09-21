@@ -1,0 +1,1 @@
+No account is required. All features are available offline. In-app purchases can be tested with a sandbox account; the paywall has a visible close button and a Restore Purchases link.

@@ -1,0 +1,32 @@
+{
+  "identifier" : "__SLUG__-products",
+  "nonRenewingSubscriptions" : [],
+  "products" : [
+    {
+      "displayPrice" : "29.99", "familyShareable" : false, "internalID" : "LIFETIME",
+      "localizations" : [ { "description" : "One-time purchase, forever.", "displayName" : "Lifetime", "locale" : "en_US" } ],
+      "productID" : "__BUNDLE_ID__.lifetime", "referenceName" : "Lifetime", "type" : "NonConsumable"
+    }
+  ],
+  "settings" : { "_applicationInternalID" : "0", "_developerTeamID" : "TEAM", "_lastSynced" : 0, "_locale" : "en_US", "_storefront" : "USA", "_storeKitErrors" : [] },
+  "subscriptionGroups" : [
+    {
+      "id" : "GROUP1", "localizations" : [], "name" : "Pro",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [], "codeOffers" : [], "displayPrice" : "4.99", "familyShareable" : false, "groupNumber" : 1, "internalID" : "WEEKLY",
+          "introductoryOffer" : { "internalID" : "TRIAL", "paymentMode" : "free", "subscriptionPeriod" : "P3D" },
+          "localizations" : [ { "description" : "Full access, billed weekly.", "displayName" : "Weekly", "locale" : "en_US" } ],
+          "productID" : "__BUNDLE_ID__.weekly", "recurringSubscriptionPeriod" : "P1W", "referenceName" : "Weekly", "subscriptionGroupID" : "GROUP1", "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [], "codeOffers" : [], "displayPrice" : "24.99", "familyShareable" : false, "groupNumber" : 1, "internalID" : "YEARLY",
+          "introductoryOffer" : null,
+          "localizations" : [ { "description" : "Full access, billed yearly.", "displayName" : "Yearly", "locale" : "en_US" } ],
+          "productID" : "__BUNDLE_ID__.yearly", "recurringSubscriptionPeriod" : "P1Y", "referenceName" : "Yearly", "subscriptionGroupID" : "GROUP1", "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : { "major" : 3, "minor" : 0 }
+}

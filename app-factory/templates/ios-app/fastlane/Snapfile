@@ -1,0 +1,5 @@
+devices(["iPhone 16 Pro Max", "iPhone 16 Pro"])   # 6.9" + 6.3"; ASC accepts 6.9" for all sizes since 2024
+languages(["en-US"])
+scheme("__TARGET__UITests")
+output_directory("./screenshots")
+clear_previous_screenshots(true)

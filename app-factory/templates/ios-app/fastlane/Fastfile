@@ -1,0 +1,53 @@
+default_platform(:ios)
+SCHEME = "__TARGET__"
+
+def asc_key
+  app_store_connect_api_key(key_id: ENV.fetch("ASC_KEY_ID"), issuer_id: ENV.fetch("ASC_ISSUER_ID"), key_filepath: ENV.fetch("ASC_KEY_PATH"))
+end
+
+platform :ios do
+  desc "Generate project and run unit tests"
+  lane :test do
+    sh("cd .. && xcodegen generate")
+    run_tests(scheme: SCHEME, devices: ["iPhone 16"])
+  end
+
+  desc "Create the app record in App Store Connect (first time only)"
+  lane :create do
+    asc_key
+    produce(app_name: "__APP_NAME__", language: "en-US", sku: "__SLUG__", skip_itc: false)
+  end
+
+  desc "Build and upload to TestFlight"
+  lane :beta do
+    asc_key
+    sh("cd .. && xcodegen generate")
+    build_app(scheme: SCHEME, export_method: "app-store", xcargs: "-allowProvisioningUpdates")
+    upload_to_testflight(skip_waiting_for_build_processing: true)
+  end
+
+  desc "Upload build + metadata + screenshots and submit for review"
+  lane :release do
+    asc_key
+    sh("cd .. && xcodegen generate")
+    build_app(scheme: SCHEME, export_method: "app-store", xcargs: "-allowProvisioningUpdates")
+    deliver(
+      submit_for_review: true,
+      automatic_release: true,
+      force: true,
+      skip_binary_upload: false,
+      precheck_include_in_app_purchases: false,
+      submission_information: {
+        add_id_info_uses_idfa: false,
+        export_compliance_uses_encryption: false,
+        content_rights_contains_third_party_content: false
+      }
+    )
+  end
+
+  desc "Push metadata only (no binary) — for ASO iterations"
+  lane :metadata do
+    asc_key
+    deliver(skip_binary_upload: true, skip_screenshots: true, force: true)
+  end
+end

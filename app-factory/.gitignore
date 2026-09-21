@@ -1,0 +1,13 @@
+.env
+secrets/
+*.p8
+*.p12
+*.mobileprovision
+*.cer
+apps/*/build/
+apps/*/*.xcodeproj
+apps/*/DerivedData/
+fastlane/report.xml
+fastlane/Preview.html
+.DS_Store
+__pycache__/
