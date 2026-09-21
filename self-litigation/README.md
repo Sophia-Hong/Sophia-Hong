@@ -1,4 +1,4 @@
-# naholo-sosong-kit — 나홀로소송(소액사건) 에이전트 키트
+# self-litigation — 나홀로소송(소액사건) 에이전트 키트
 
 소액사건(소가 3,000만원 이하)을 혼자 진행하는 사람이 자기 AI(Claude Code / Codex)에 설치해, 인터뷰 → 크로놀로지 → 요건사실 → 증거표 → 소장 초안 → 비용 계산 → 전자소송 제출 → 상대방 서면 해설까지 단계별로 진행하게 돕는 프롬프트·에이전트 키트.
 
@@ -26,12 +26,8 @@
 ## 상태
 - 2026-09-21: v0.1 뼈대 + 리서치 4건(법률·IP/배포·프로덕트·마케팅) 반영. 상세는 `docs/progress/2026-09-21.md`, 결정은 `docs/decisions.md`.
 
-## 새 레포로 옮기기
-세션 권한 제한으로 새 레포를 만들지 못해 `sophia-hong/sophia-hong` 브랜치의 하위 폴더에 있습니다. 새 레포를 만든 뒤:
-```
-git subtree split -P naholo-sosong-kit -b naholo-kit
-git push <새레포 URL> naholo-kit:main
-```
+## 레포
+정식 레포: `sophia-hong/self-litigation` (플러그인 이름은 짧게 `naholo`, 명령은 `/naholo:*`). 이 폴더는 프로필 레포 브랜치에서 개발된 초기 히스토리이며, 정식 레포 생성 후 `git subtree split -P self-litigation` 로 이전한다.
 
 ## 면책
 이 키트는 법률자문이 아니며 절차 안내·문서 작성 보조 도구입니다. 정부 공개자료(대법원 전자소송포털 나홀로소송 도움말, 생활법령정보, 대한법률구조공단, 국가법령정보센터)를 기반으로 하며, 모든 법조문·판례·금액은 사용자가 최종 확인해야 합니다.
