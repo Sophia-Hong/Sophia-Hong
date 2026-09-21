@@ -5,7 +5,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo '[naholo] 이 키트는 법률자문이 아닌 절차 안내·작성 보조 도구입니다. 판례·법조문은 반드시 /naholo:cite-check 로 검증하세요. 사건 파일은 case/ 폴더에 저장됩니다.'"
+            "command": "echo '[naholo] 이 키트는 법률자문이 아닌 절차 안내·작성 보조 도구입니다(제작자: 변호사 자격 보유, 휴업 중). 판매자는 사건 내용에 접근하지 않습니다. 판례·법조문은 /naholo:cite-check 로 검증하세요. 사건 파일은 case/ 폴더에 저장됩니다.'"
           }
         ]
       }
