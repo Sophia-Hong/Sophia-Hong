@@ -1,7 +1,9 @@
 {
   "name": "naholo-marketplace",
-  "owner": { "name": "Sophia Hong" },
-  "metadata": { "description": "나홀로소송 에이전트 키트 배포 마켓플레이스 (비공개 레포)" },
+  "owner": "sophia-hong",
+  "metadata": {
+    "description": "나홀로소송 에이전트 키트 배포 마켓플레이스 (비공개 레포)"
+  },
   "plugins": [
     {
       "name": "naholo",

@@ -14,7 +14,7 @@ description: 판례 사건번호·법조문의 존재와 내용을 검증하는 
 ## 절차
 1. 형식 검사: 사건번호 형식 `YYYY + 부호 + 숫자` (예: 2019다12345, 2020가소1234, 2021나5678). 부호 목록: 다/나/가단/가소/가합/도/두/누/카/마/므/므단/르 등. `scripts/cite_check.py --format` 으로 검사.
 2. 존재 확인 (아래 중 하나 이상):
-   - 국가법령정보센터 판례 Open API (`https://www.law.go.kr/DRF/lawSearch.do?OC={OC}&target=prec&type=JSON&query={사건번호}`) — OC(이메일 아이디)를 `NAHOLO_LAW_OC` 환경변수로 설정. 응답의 `사건번호` 필드가 정확히 일치해야 "존재".
+   - 국가법령정보센터 판례 Open API (`https://www.law.go.kr/DRF/lawSearch.do?OC={OC}&target=prec&type=JSON&query={사건번호}`) — OC(이메일 아이디)를 `NAHOLO_LAW_OC` 환경변수로 설정(플러그인 설치 시 userConfig `law_oc` 로 입력하면 `${user_config.law_oc}` 로 참조 가능: `NAHOLO_LAW_OC=${user_config.law_oc} python3 ${CLAUDE_PLUGIN_ROOT}/scripts/cite_check.py …`). 응답의 `사건번호` 필드가 정확히 일치해야 "존재".
    - 대법원 종합법률정보 https://glaw.scourt.go.kr 에서 사건번호 검색 (WebFetch 가능하면 사용, 아니면 사용자에게 URL 제공).
    - CaseNote https://casenote.kr 검색.
 3. 내용 대조: 존재가 확인되면 판시사항·판결요지를 가져와, 우리가 인용하려는 명제와 대조한다. 다르면 "경고"와 함께 실제 요지를 보여준다.
