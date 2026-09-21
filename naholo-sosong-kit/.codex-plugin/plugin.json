@@ -1,0 +1,6 @@
+{
+  "name": "naholo",
+  "version": "0.1.0",
+  "description": "나홀로소송(소액사건) 단계별 안내 에이전트 키트 (Codex용 매니페스트 — 실기기 테스트 전 [미확인])",
+  "skills": "./skills"
+}
