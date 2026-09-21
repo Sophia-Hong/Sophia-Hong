@@ -1,6 +1,0 @@
-{
-  "name": "naholo-marketplace",
-  "plugins": [
-    { "name": "naholo", "source": { "source": "local", "path": "./" }, "policy": { "installation": "AVAILABLE" } }
-  ]
-}
